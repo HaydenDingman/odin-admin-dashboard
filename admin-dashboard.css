@@ -170,6 +170,11 @@ header {
     border: 1px solid var(--sidebar-green-hover);
 }
 
+.actions button:active {
+    background-color: var(--sidebar-green);
+    border: 1px solid var(--sidebar-green);
+}
+
 main {
     background-color: var(--grayish);
 
