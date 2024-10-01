@@ -9,30 +9,33 @@
 }
 
 :root {
-    font-size:16px;
-    line-height:1.5rem;
+    font-size: 16px;
+    line-height: 1.5rem;
     font-family: "cabin", sans-serif;
 
-    --sidebar-green: rgb(50, 97, 20);
-    --sidebar-green-hover: rgb(59, 118, 22);
-    --white:rgb(246, 245, 245);
-    --grayish:rgb(226, 224, 224);
+    --sidebar-green: rgb(2, 44, 34);
+    --sidebar-green-hover: rgb(6, 95, 70);
+    --white: #fff;
+    --grayish: #f3f4f6;
+    --shadows: rgb(131, 131, 131);
+    --card-accent: rgb(52, 211, 153);
+    --faint-text: #9ca3af;
 }
 
 body {
     min-width: 100vw;
-    min-height:100vh;
-    display:grid;
-    grid-template: 1fr 4fr / 1fr 4fr;
+    height: 100vh;
+    display: grid;
+    grid-template: minmax(20vh, 200px) 4fr / minmax(200px, 300px) 4fr;
 }
 
 .sidebar {
     grid-row: 1 / -1;
     background-color: var(--sidebar-green);
-    
+
     display: grid;
     grid-template-rows: 100px 1fr;
-    color:var(--white);
+    color: var(--white);
     z-index: 2;
 }
 
@@ -49,7 +52,7 @@ nav {
     grid-template-columns: min-content auto;
     gap: 10px;
     align-items: center;
-    padding:10px 40px;
+    padding: 10px 40px;
 }
 
 .nav-item:hover {
@@ -58,7 +61,7 @@ nav {
 
 .logo-text {
     padding: 10px 40px;
-    display:flex;
+    display: flex;
     gap: 10px;
     align-items: center;
     font-size: 1.3rem;
@@ -66,13 +69,13 @@ nav {
 
 header {
     background-color: var(--white);
-    box-shadow: 0px 10px 50px rgb(131, 131, 131);
+    box-shadow: 0px 3px 20px var(--shadows);
     z-index: 1;
     padding: 20px 30px;
 
-    color:black;
+    color: black;
 
-    display:grid;
+    display: grid;
     grid-template-columns: 3fr 2fr;
     grid-template-rows: 1fr 1fr;
 
@@ -80,20 +83,30 @@ header {
 }
 
 .search {
-    display:grid;
+    display: grid;
     grid-template-columns: 1fr 15fr;
-    align-items:center;
+    align-items: center;
 
 }
 
 .search input {
-    background-color:var(--grayish);
-    border-radius: 25px;
+    background-color: var(--grayish);
+    border-radius: 15px;
     font-size: 1rem;
+    padding: 5px 10px;
+}
+
+.search input:hover {
+    background-color: var(--white);
+}
+
+.search input:focus {
+    border: 2px var(--sidebar-green-hover) solid;
+    outline: 2px var(--sidebar-green-hover) solid;
 }
 
 .profile {
-    justify-self:end;
+    justify-self: end;
 
     display: grid;
     grid-template-columns: min-content min-content auto;
@@ -101,35 +114,35 @@ header {
     justify-items: end;
     gap: 20px;
 
-    font-size:1.125rem;
+    font-size: 1.125rem;
 }
 
 .profile img {
-    width:4vw;
+    width: 4vw;
     border-radius: 50%;
 }
 
 .user-info {
-    display:grid;
+    display: grid;
     grid-template-columns: min-content 1fr;
     grid-template-rows: auto auto;
-    gap:0px 30px;
+    gap: 0px 30px;
 
     align-items: center;
 }
 
 .user-info img {
-    width:5vw;
-    border-radius:50%;
+    width: 5vw;
+    border-radius: 50%;
     grid-row: 1 / 3;
 }
 
 .greeting {
-    align-self:end;
+    align-self: end;
 }
 
 .username-large {
-    font-size:1.5rem;
+    font-size: 1.5rem;
 }
 
 .actions {
@@ -139,23 +152,148 @@ header {
     align-items: end;
     gap: 10px;
 
-    justify-self:end;
+    justify-self: end;
 }
 
 .actions button {
     background-color: var(--sidebar-green);
     border: 1px solid var(--sidebar-green);
     border-radius: 20px;
-    padding:10px 40px;
+    padding: 10px 40px;
 
-    font-size:1.1rem;
-    color:var(--white)
+    font-size: 1.1rem;
+    color: var(--white)
 }
 
 .actions button:hover {
     background-color: var(--sidebar-green-hover);
+    border: 1px solid var(--sidebar-green-hover);
 }
 
 main {
     background-color: var(--grayish);
+
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: min-content min-content;
+    gap: 20px;
+
+    padding: 30px;
+
+    overflow: auto;
+}
+
+.your-projects {
+    grid-row: 1 / -1;
+
+    display: grid;
+    grid-template-rows: min-content 1fr;
+}
+
+main h3 {
+    padding: 10px 0px 20px 0px;
+    font-size: 1.375rem;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--white);
+    padding: 20px 10px 10px 10px;
+    border-left: 10px solid var(--card-accent);
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px var(--shadows);
+
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+
+main p {
+    color: var(--faint-text)
+}
+
+.card-icons {
+    align-self: end;
+    justify-self: end;
+
+    padding-top: 20px;
+}
+
+.card-icons svg {
+    margin: 10px;
+}
+
+.announcements {
+    display: grid;
+    grid-template-rows: min-content 1fr;
+}
+
+.announcement-container {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+
+    display: grid;
+    grid-template-rows: min-content min-content min-content;
+
+    box-shadow: 0px 3px 10px var(--shadows);
+}
+
+.announcement-card {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.middle {
+    border-top: 1px var(--grayish) solid;
+    border-bottom: 1px var(--grayish) solid;
+}
+
+.announcement-container p {
+    font-size: 0.875rem;
+}
+
+.trending {
+    display: grid;
+    grid-template-rows: min-content 1fr;
+}
+
+.trending-container {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 20px 10px;
+
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+
+    box-shadow: 0px 3px 10px var(--shadows);
+}
+
+.trending-container p {
+    font-size: 0.875rem;
+    align-self: start;
+}
+
+.trending-project {
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-template-rows: min-content min-content;
+    gap: 0px 20px;
+}
+
+.trending-project h5 {
+    align-self: end;
+}
+
+.trending img {
+    max-width: 3vw;
+    grid-row: 1 / -1;
+    border-radius: 50%;
+    align-self: center;
 }
