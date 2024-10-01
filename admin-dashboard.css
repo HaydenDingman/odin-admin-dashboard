@@ -13,7 +13,8 @@
     line-height:1.5rem;
     font-family: "cabin", sans-serif;
 
-    --sidebar-blue: rgb(0, 136, 255);
+    --sidebar-green: rgb(50, 97, 20);
+    --sidebar-green-hover: rgb(59, 118, 22);
     --white:rgb(246, 245, 245);
     --grayish:rgb(226, 224, 224);
 }
@@ -27,7 +28,7 @@ body {
 
 .sidebar {
     grid-row: 1 / -1;
-    background-color: var(--sidebar-blue);
+    background-color: var(--sidebar-green);
 
     padding: 10px 40px;
     
@@ -62,7 +63,9 @@ header {
 
     display:grid;
     grid-template-columns: 3fr 2fr;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+
+    font-weight: 600;
 }
 
 .search {
@@ -88,23 +91,58 @@ header {
     gap: 20px;
 
     font-size:1.125rem;
-    font-weight:600;
 }
 
 .profile img {
     width:4vw;
-    border-radius: 25px;
+    border-radius: 50%;
 }
 
 .user-info {
+    display:grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: auto auto;
+    gap:0px 30px;
 
+    align-items: center;
+}
+
+.user-info img {
+    width:5vw;
+    border-radius:50%;
+    grid-row: 1 / 3;
+}
+
+.greeting {
+    align-self:end;
+}
+
+.username-large {
+    font-size:1.5rem;
 }
 
 .actions {
     display: grid;
-    grid-template-columns: 50px 50px 50px;
+    grid-template-columns: auto auto auto;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: end;
+    gap: 10px;
+
+    justify-self:end;
+}
+
+.actions button {
+    background-color: var(--sidebar-green);
+    border: 1px solid var(--sidebar-green);
+    border-radius: 20px;
+    padding:10px 40px;
+
+    font-size:1.1rem;
+    color:var(--white)
+}
+
+.actions button:hover {
+    background-color: var(--sidebar-green-hover);
 }
 
 main {
