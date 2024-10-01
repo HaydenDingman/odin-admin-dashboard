@@ -29,8 +29,6 @@ body {
 .sidebar {
     grid-row: 1 / -1;
     background-color: var(--sidebar-green);
-
-    padding: 10px 40px;
     
     display: grid;
     grid-template-rows: 100px 1fr;
@@ -40,13 +38,26 @@ body {
 
 nav {
     display: grid;
-    grid-template-columns: 1fr 4fr;
     grid-template-rows: repeat(10, 40px);
     gap: 5px;
     font-size: 1.5rem;
+    align-items: center;
+}
+
+.nav-item {
+    display: grid;
+    grid-template-columns: min-content auto;
+    gap: 10px;
+    align-items: center;
+    padding:10px 40px;
+}
+
+.nav-item:hover {
+    background-color: var(--sidebar-green-hover);
 }
 
 .logo-text {
+    padding: 10px 40px;
     display:flex;
     gap: 10px;
     align-items: center;
